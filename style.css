@@ -41,7 +41,7 @@ body {
 }
 
 .calc button:active {
-  filter: brightness(1.25)
+  filter: brightness(1.25);
 }
 
 .span-two {
@@ -51,8 +51,6 @@ body {
 .calc .operator {
   background-color: #ff9d36;
 }
-
-
 
 .calc .output {
   grid-column: 1 / -1;

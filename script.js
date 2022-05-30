@@ -15,9 +15,9 @@ class Calculator {
   }
 
   invertSignal() {
-    if('-' === this.currentOperand.toString().charAt(0)) {
+    if ('-' === this.currentOperand.toString().charAt(0)) {
       this.currentOperand = this.currentOperand.toString().slice(1);
-    } 
+    }
     else {
       this.currentOperand = `-${this.currentOperand}`;
     }
@@ -25,22 +25,22 @@ class Calculator {
 
   formatDisplayNumber(number) {
     const stringNumber = number.toString();
-    
+
     const integerDigits = parseFloat(stringNumber.split('.')[0]);
     const decimalDigits = stringNumber.split('.')[1];
 
     let integerDisplay;
 
-    if(isNaN(integerDigits)) {
+    if (isNaN(integerDigits)) {
       integerDisplay = '';
-    } 
+    }
     else {
       integerDisplay = integerDigits.toLocaleString('en', {
         maximumFractionDigits: 0,
       });
-    } 
+    }
 
-    if(decimalDigits != null) {
+    if (decimalDigits != null) {
       return `${integerDisplay}.${decimalDigits}`;
     }
     else {
@@ -83,8 +83,8 @@ class Calculator {
   }
 
   chooseOperation(operation) {
-    if(this.currentOperand === '') return;
-    if(this.currentOperand !== '') this.calculate();
+    if (this.currentOperand === '') return;
+    if (this.currentOperand !== '') this.calculate();
 
     this.operation = operation;
 
@@ -148,3 +148,76 @@ invertSignalButton.addEventListener('click', () => {
   calculator.invertSignal();
   calculator.updateDisplay();
 });
+
+document.addEventListener('keydown', (event) => {
+  event.preventDefault();
+  switch (event.key) {
+    case '0':
+      document.querySelector('[data-number="0"]').click();
+      break;
+    case '1':
+      document.querySelector('[data-number="1"]').click();
+      break;
+    case '2':
+      document.querySelector('[data-number="2"]').click();
+      break;
+    case '3':
+      document.querySelector('[data-number="3"]').click();
+      break;
+    case '4':
+      document.querySelector('[data-number="4"]').click();
+      break;
+    case '5':
+      document.querySelector('[data-number="5"]').click();
+      break;
+    case '6':
+      document.querySelector('[data-number="6"]').click();
+      break;
+    case '7':
+      document.querySelector('[data-number="7"]').click();
+      break;
+    case '8':
+      document.querySelector('[data-number="8"]').click();
+      break;
+    case '9':
+      document.querySelector('[data-number="9"]').click();
+      break;
+    case '+':
+      document.querySelector('[data-operator="+"]').click();
+      break;
+    case '-':
+      document.querySelector('[data-operator="-"]').click();
+      break;
+    case '*':
+      document.querySelector('[data-operator="x"]').click();
+      break;
+    case '/':
+      document.querySelector('[data-operator="÷"]').click();
+      break;
+    case 'Escape':
+      allClearButton.click();
+      break;
+    case 'Backspace':
+      deleteButton.click();
+      break;
+    case 'Enter':
+      equalsButton.click();
+      break;
+    default: break;
+  }
+});
+
+// document.addEventListener('keydown', (event) => {
+//   event.preventDefault();
+//   switch (event.key) {
+//     case 'Escape': 
+//       allClearButton.click();
+//       break;
+//     case 'Backspace': 
+//       deleteButton.click();
+//       break;
+//     case 'Enter': 
+//       equalsButton.click();
+//       break;
+//   }
+// })
