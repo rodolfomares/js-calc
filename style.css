@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  background: rgb(22, 22, 22);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  overflow: auto;
+}
+
+.calc {
+  display: grid;
+  border-radius: 10px;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(4, 58px);
+  grid-template-rows: minmax(90px, auto) repeat(5, 45px);
+  overflow: hidden;
+}
+
+.calc button {
+  font-size: 1.25em;
+  outline: none;
+  border: 1px solid rgba(53, 54, 56, 0.25);
+  background-color: #656668;
+  /* color: #e5e6e8; */
+  color: #fff;
+}
+
+.calc button:hover {
+  filter: brightness(1.1);
+}
+
+.calc button:active {
+  filter: brightness(1.25)
+}
+
+.span-two {
+  grid-column: span 2
+}
+
+.calc .operator {
+  background-color: #ff9d36;
+}
+
+
+
+.calc .output {
+  grid-column: 1 / -1;
+  background-color: #2d2e30;
+  color: #fff;
+  padding: 4px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  font-size: 1.1em;
+  word-wrap: break-word;
+  word-wrap: break-all;
+  text-align: right;
+}
+
+.calc .output .previous-operand {
+  width: 100%;
+  color: rgba(255,255,255,0.75);
+}
+
+.calc .output .current-operand {
+  width: 100%;
+  font-size: 1.5em;
+}
